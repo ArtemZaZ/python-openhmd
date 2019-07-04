@@ -1,6 +1,19 @@
-#[python-openhmd](https://github.com/lubosz/python-openhmd)
+# [python-openhmd](https://github.com/lubosz/python-openhmd)
 
-Сначала ставите [OpenHMD](https://github.com/OpenHMD/OpenHMD/tree/7213580b5748160fedcecc58b11d937b1e88d778):   
+Клонируете репозиторий, а также инициализируете подмодуль OpenHMD:
+    
+    cd OpenHMD
+    git submodule init
+    git submodule update
+    cd ..
+
+Устанавливаете необходимые зависимости:
+    
+    sudo apt install libusb-1.0 libglew-dev
+   
+P.S. могут потребоваться доп. библиотеки, во время компиляции смотрите, чего не хватает и доустанавливайте
+
+Ставите [OpenHMD](https://github.com/OpenHMD/OpenHMD/tree/7213580b5748160fedcecc58b11d937b1e88d778):   
 
     pip3 install meson
     pip3 install ninja
@@ -8,6 +21,7 @@
     meson build -Dexamples=simple,opengl
     ninja -C build
     sudo ninja -C build install
+    cd ..
 
 P.S. Если в процессе компиляции появляются ошибки, устанавливайте библиотеки, которых не хватает   
 
@@ -22,9 +36,21 @@ P.S. Если в процессе компиляции появляются ош
 Если все прошло нормально, то можно попробовать запустить пример
 
     ./test.py
+
+Если появляется ошибка 
     
-####TODO: потом еще дополню 
+    ImportError: libopenhmd.so.0: cannot open shared object file: No such file or directory
+
+То создаете файл:
     
+    sudo nano /etc/ld.so.conf.d/oculusLib.conf
 
+и пишите в него путь до libopenhmd.so.0, сохраняете и закрываете:
+    
+    /usr/local/lib/x86_64-linux-gnu
 
+Вызываете:
+    
+    sudo ldconfig
 
+Все должно заработать)
