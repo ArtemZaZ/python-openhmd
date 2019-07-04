@@ -8,7 +8,7 @@ module1 = Extension("openhmd",
                     ["pyopenhmd.pyx", "OpenHMD.cpp"],
                     language="c++",
                     libraries=["openhmd"],
-                    include_dirs=['/usr/include/openhmd', 'usr/local/include/openhmd'])
+                    include_dirs=['/usr/include/openhmd', '/usr/local/include/openhmd'])
 
 setup(name='openhmd',
       version='1.0',
