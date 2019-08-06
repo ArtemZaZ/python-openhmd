@@ -9,14 +9,15 @@
 
 Устанавливаете необходимые зависимости:
     
-    sudo apt install libusb-1.0 libglew-dev
+    sudo apt install libusb-1.0 libglew-dev libsdl2-dev
    
 P.S. могут потребоваться доп. библиотеки, во время компиляции смотрите, чего не хватает и доустанавливайте
 
-Ставите [OpenHMD](https://github.com/OpenHMD/OpenHMD/tree/7213580b5748160fedcecc58b11d937b1e88d778):   
+Ставите [OpenHMD](https://github.com/OpenHMD/OpenHMD/tree/7213580b5748160fedcecc58b11d937b1e88d778):    
+**meson и ninja обязательно ставить из-под sudo, если они уже установлены, переустанавливайте из-под sudo**  
 
-    pip3 install meson
-    pip3 install ninja
+    sudo pip3 install meson
+    sudo pip3 install ninja
     cd OpenHMD
     meson build -Dexamples=simple,opengl
     ninja -C build
