@@ -15,6 +15,7 @@ cdef extern from "OpenHMD.h":
         void reset()
         void printSensors()
         void inputLoop()
+        void setZero()
         
 
 cdef class PyOpenHMD:
@@ -38,6 +39,9 @@ cdef class PyOpenHMD:
 
     def printDeviceInfo(self):
         self.thisptr.printDeviceInfo()
+
+    def setZero(self):
+        self.thisptr.setZero()
 
     property rotation:
       def __get__(self): return self.thisptr.rotation

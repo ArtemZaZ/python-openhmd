@@ -22,6 +22,7 @@ class OpenHMD {
   void poll();
   void printSensors();
   void reset();
+  void setZero();
 
  private:
   void print(std::string name, int len, ohmd_float_value val);
